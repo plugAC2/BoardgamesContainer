@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:fragment="page" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/menu::main-menu">Menu</div>
+
+<div th:replace="this::mainContent">CONTENT</div>
+
+<div th:replace="fragments/menu::footer-menu">Footer menu</div>
+</body>
+</html>
