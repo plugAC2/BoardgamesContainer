@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:include="layouts/generalLayout::page" lang="en">
+
+<body>
+
+<div th:fragment="mainContent">
+    <form method="post" th:object="${userModel}">
+        <label for="username">
+            Username:
+            <input type="text" id="username" required th:field="*{username}">
+        </label>
+        <br/>
+        <label for="email">
+            Email:
+            <input type="text" id="email" required th:field="*{email}">
+        </label>
+        <br/>
+        <label for="password">
+            Password:
+            <input type="password" id="password" required th:field="*{password}">
+        </label>
+        <br/>
+        <label for="repeatPassword">
+            Repeat password:
+            <input type="password" id="repeatPassword" required th:field="*{repeatPassword}">
+        </label>
+        <br/>
+        <input type="submit" value="Register">
+    </form>
+</div>
+
+</body>
+</html>
