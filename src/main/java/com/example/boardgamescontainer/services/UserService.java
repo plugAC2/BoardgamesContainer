@@ -1,6 +1,7 @@
 package com.example.boardgamescontainer.services;
 
 import com.example.boardgamescontainer.entities.User;
+import com.example.boardgamescontainer.entityModelFactories.UserEntityModelFactory;
 import com.example.boardgamescontainer.models.UserModel;
 import com.example.boardgamescontainer.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,7 @@ import java.util.Optional;
 public class UserService implements CrudService<User, UserModel>, UserDetailsService {
 
     private final UserRepository userRepository;
+    private final UserEntityModelFactory factory;
 
     @Override
     public List<User> getAll() {
@@ -37,6 +39,7 @@ public class UserService implements CrudService<User, UserModel>, UserDetailsSer
 
     @Override
     public void newRecord(UserModel userModel) {
+        userRepository.save(factory.createEntityFromModel(userModel));
     }
 
     @Override

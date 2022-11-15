@@ -4,10 +4,11 @@
 <body>
 
 <div th:fragment="mainContent">
-    <form method="post" th:object="${userModel}">
+    <form action="/add" method="POST" th:object="${userModel}">
         <label for="username">
             Username:
             <input type="text" id="username" required th:field="*{username}">
+            <div th:errors="*{username}" style="color: red">Error message</div>
         </label>
         <br/>
         <label for="email">
@@ -18,6 +19,7 @@
         <label for="password">
             Password:
             <input type="password" id="password" required th:field="*{password}">
+            <div th:errors="*{repeatPassword}" style="color: red">Error message</div>
         </label>
         <br/>
         <label for="repeatPassword">
